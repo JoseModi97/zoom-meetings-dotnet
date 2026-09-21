@@ -25,4 +25,12 @@ public sealed partial class ZoomClient
     /// <summary>DELETE /meetings/{meetingId}/polls/{pollId} - delete a poll.</summary>
     public Task DeletePollAsync(string meetingId, string pollId, CancellationToken cancellationToken = default)
         => CallAsync(HttpMethod.Delete, $"/meetings/{ZoomIdEncoding.EncodePathSegment(meetingId)}/polls/{Uri.EscapeDataString(pollId)}", cancellationToken: cancellationToken);
+
+    /// <summary>POST /meetings/{meetingId}/batch_polls - create polls in batch.</summary>
+    public Task<CreateBatchPollsResult?> CreateBatchPollsAsync(string meetingId, CreateBatchPollsRequest request, CancellationToken cancellationToken = default)
+        => CallAsync<CreateBatchPollsResult>(HttpMethod.Post, $"/meetings/{ZoomIdEncoding.EncodePathSegment(meetingId)}/batch_polls", request, cancellationToken: cancellationToken);
+
+    /// <summary>GET /past_meetings/{meetingId}/polls - list past meeting's poll results.</summary>
+    public Task<PastMeetingPollResults?> GetPastMeetingPollsAsync(string meetingId, CancellationToken cancellationToken = default)
+        => CallAsync<PastMeetingPollResults>(HttpMethod.Get, $"/past_meetings/{ZoomIdEncoding.EncodePathSegment(meetingId)}/polls", cancellationToken: cancellationToken);
 }

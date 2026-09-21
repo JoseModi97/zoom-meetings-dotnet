@@ -33,8 +33,13 @@ internal static class ZoomCliConfigLoader
         {
             var devJson = Path.Combine(current, "appsettings.Development.json");
             var prodJson = Path.Combine(current, "appsettings.json");
+            var localSettingsJson = Path.Combine(current, "local.settings.json");
+            var envFile = Path.Combine(current, ".env");
 
-            if (TryLoadFromJson(devJson, section, config) || TryLoadFromJson(prodJson, section, config))
+            if (TryLoadFromJson(devJson, section, config) ||
+                TryLoadFromJson(prodJson, section, config) ||
+                TryLoadFromLocalSettings(localSettingsJson, envPrefix, config) ||
+                TryLoadFromDotEnv(envFile, envPrefix, config))
                 break;
 
             var parent = Directory.GetParent(current);
@@ -70,6 +75,83 @@ internal static class ZoomCliConfigLoader
             if (string.IsNullOrWhiteSpace(config.ClientId) && !string.IsNullOrWhiteSpace(clientId)) { config.ClientId = clientId!; updated = true; }
             if (string.IsNullOrWhiteSpace(config.ClientSecret) && !string.IsNullOrWhiteSpace(clientSecret)) { config.ClientSecret = clientSecret!; updated = true; }
 
+            return updated && !string.IsNullOrWhiteSpace(config.AccountId);
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    private static bool TryLoadFromLocalSettings(string filePath, string envPrefix, ZoomConfig config)
+    {
+        if (!File.Exists(filePath)) return false;
+
+        try
+        {
+            var root = JsonNode.Parse(File.ReadAllText(filePath))?.AsObject();
+            if (root == null) return false;
+            var values = root["Values"] as JsonObject;
+            if (values == null) return false;
+
+            string? GetVal(string suffix)
+            {
+                return values[$"{envPrefix}:{suffix}"]?.ToString() ??
+                       values[$"{envPrefix}__{suffix}"]?.ToString() ??
+                       values[$"{envPrefix}_{suffix.ToUpperInvariant()}"]?.ToString() ??
+                       values[suffix]?.ToString();
+            }
+
+            var accountId = GetVal("AccountId");
+            var clientId = GetVal("ClientId");
+            var clientSecret = GetVal("ClientSecret");
+
+            var updated = false;
+            if (string.IsNullOrWhiteSpace(config.AccountId) && !string.IsNullOrWhiteSpace(accountId)) { config.AccountId = accountId!; updated = true; }
+            if (string.IsNullOrWhiteSpace(config.ClientId) && !string.IsNullOrWhiteSpace(clientId)) { config.ClientId = clientId!; updated = true; }
+            if (string.IsNullOrWhiteSpace(config.ClientSecret) && !string.IsNullOrWhiteSpace(clientSecret)) { config.ClientSecret = clientSecret!; updated = true; }
+
+            return updated && !string.IsNullOrWhiteSpace(config.AccountId);
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    private static bool TryLoadFromDotEnv(string filePath, string envPrefix, ZoomConfig config)
+    {
+        if (!File.Exists(filePath)) return false;
+
+        try
+        {
+            var lines = File.ReadAllLines(filePath);
+            var updated = false;
+            foreach (var rawLine in lines)
+            {
+                var line = rawLine.Trim();
+                if (string.IsNullOrEmpty(line) || line.StartsWith("#")) continue;
+                var idx = line.IndexOf('=');
+                if (idx <= 0) continue;
+                var key = line.Substring(0, idx).Trim();
+                var val = line.Substring(idx + 1).Trim().Trim('"', '\'');
+
+                if (string.IsNullOrWhiteSpace(config.AccountId) && key.Equals($"{envPrefix}_ACCOUNT_ID", StringComparison.OrdinalIgnoreCase))
+                {
+                    config.AccountId = val;
+                    updated = true;
+                }
+                else if (string.IsNullOrWhiteSpace(config.ClientId) && key.Equals($"{envPrefix}_CLIENT_ID", StringComparison.OrdinalIgnoreCase))
+                {
+                    config.ClientId = val;
+                    updated = true;
+                }
+                else if (string.IsNullOrWhiteSpace(config.ClientSecret) && key.Equals($"{envPrefix}_CLIENT_SECRET", StringComparison.OrdinalIgnoreCase))
+                {
+                    config.ClientSecret = val;
+                    updated = true;
+                }
+            }
             return updated && !string.IsNullOrWhiteSpace(config.AccountId);
         }
         catch

@@ -30,4 +30,24 @@ public sealed partial class ZoomClient
 
         return CallAsync<ListMeetingSummariesResult>(HttpMethod.Get, "/meetings/meeting_summaries", query: query, cancellationToken: cancellationToken);
     }
+
+    /// <summary>GET /users/{userId}/meeting_summaries - list a user's meeting or webinar summaries.</summary>
+    public Task<ListMeetingSummariesResult?> ListUserMeetingSummariesAsync(
+        string userId,
+        int? pageSize = null,
+        string? nextPageToken = null,
+        DateTimeOffset? from = null,
+        DateTimeOffset? to = null,
+        string? timeFilterField = null,
+        CancellationToken cancellationToken = default)
+    {
+        var query = new Dictionary<string, string?>();
+        if (pageSize != null) query["page_size"] = pageSize.Value.ToString();
+        if (nextPageToken != null) query["next_page_token"] = nextPageToken;
+        if (from != null) query["from"] = from.Value.ToString("yyyy-MM-dd");
+        if (to != null) query["to"] = to.Value.ToString("yyyy-MM-dd");
+        if (timeFilterField != null) query["time_filter_field"] = timeFilterField;
+
+        return CallAsync<ListMeetingSummariesResult>(HttpMethod.Get, $"/users/{ZoomIdEncoding.EncodePathSegment(userId)}/meeting_summaries", query: query, cancellationToken: cancellationToken);
+    }
 }

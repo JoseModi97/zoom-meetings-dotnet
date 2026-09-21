@@ -15,6 +15,7 @@ This folder contains clean, self-contained examples demonstrating how to integra
 | [`blazor-server/`](./blazor-server) | Blazor Web App, interactive server render mode (.NET 8) | A real `.razor` page listing meetings with a create form, injected `ZoomClient` |
 | [`azure-functions-worker/`](./azure-functions-worker) | Azure Functions isolated worker (.NET 8) | HTTP-triggered functions for listing and creating meetings |
 | [`console-script/`](./console-script) | Lightweight console application (.NET 8) | Pagination via `EnumerateMeetingsAsync`, typed create, and the raw `CallAsync` escape hatch |
+| [`all-186-endpoints/`](./all-186-endpoints) | Exhaustive 186-operations test & runner suite (.NET 8) | Demonstrates every single one of Zoom's 186 Meetings API operations across all 13 domains |
 
 ---
 

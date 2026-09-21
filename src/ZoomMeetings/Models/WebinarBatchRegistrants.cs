@@ -8,6 +8,9 @@ public class AddBatchRegistrantsRequest
     [JsonPropertyName("auto_approve")]
     public bool? AutoApprove { get; set; }
 
+    [JsonPropertyName("registrants_confirmation_email")]
+    public bool? RegistrantsConfirmationEmail { get; set; }
+
     [JsonPropertyName("registrants")]
     public List<BatchRegistrantRequest> Registrants { get; set; } = new();
 }

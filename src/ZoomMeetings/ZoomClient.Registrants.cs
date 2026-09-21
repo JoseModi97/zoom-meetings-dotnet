@@ -42,6 +42,18 @@ public sealed partial class ZoomClient
     public Task UpdateRegistrantStatusAsync(string meetingId, string action, IEnumerable<string> registrantIds, CancellationToken cancellationToken = default)
         => UpdateRegistrantStatusForResourceAsync("meetings", meetingId, action, registrantIds, cancellationToken);
 
+    /// <summary>POST /meetings/{meetingId}/batch_registrants - add registrants in batch to a meeting.</summary>
+    public Task<AddBatchRegistrantsResult?> AddBatchRegistrantsAsync(string meetingId, AddBatchRegistrantsRequest request, CancellationToken cancellationToken = default)
+        => CallAsync<AddBatchRegistrantsResult>(HttpMethod.Post, $"/meetings/{ZoomIdEncoding.EncodePathSegment(meetingId)}/batch_registrants", request, cancellationToken: cancellationToken);
+
+    /// <summary>GET /meetings/{meetingId}/registrants/questions - get registration questions for a meeting.</summary>
+    public Task<RegistrationQuestions?> GetRegistrationQuestionsAsync(string meetingId, CancellationToken cancellationToken = default)
+        => GetRegistrationQuestionsForResourceAsync("meetings", meetingId, cancellationToken);
+
+    /// <summary>PATCH /meetings/{meetingId}/registrants/questions - update registration questions for a meeting.</summary>
+    public Task UpdateRegistrationQuestionsAsync(string meetingId, RegistrationQuestions questions, CancellationToken cancellationToken = default)
+        => UpdateRegistrationQuestionsForResourceAsync("meetings", meetingId, questions, cancellationToken);
+
     // Shared implementation used by both meetings and webinars (ZoomClient.Webinars.cs) - the
     // request/response shapes are identical, only the resource segment in the path differs.
     private Task<ListRegistrantsResult?> ListRegistrantsForResourceAsync(

@@ -1,52 +1,52 @@
 Total operations: 186
-Typed in v1: 140
-Raw-only (still fully callable via CallAsync): 46
+Typed in v1: 186
+Raw-only: 0
 
 | Domain | Total | Typed v1 | Raw-only |
 |---|---|---|---|
-| Devices/H.323 | 17 | 0 | 17 |
-| Live Meeting Controls | 4 | 0 | 4 |
-| Meeting Summaries | 4 | 3 | 1 |
+| Devices/H.323 | 17 | 17 | 0 |
+| Live Meeting Controls | 4 | 4 | 0 |
+| Meeting Summaries | 4 | 4 | 0 |
 | Meetings core | 27 | 27 | 0 |
-| Polls | 7 | 5 | 2 |
+| Polls | 7 | 7 | 0 |
 | Recordings/Archiving | 23 | 23 | 0 |
-| Registrants | 8 | 5 | 3 |
+| Registrants | 8 | 8 | 0 |
 | Reports | 24 | 24 | 0 |
-| SIP Phones | 4 | 0 | 4 |
-| TSP | 8 | 0 | 8 |
-| Templates | 2 | 0 | 2 |
-| Tracking Fields | 5 | 0 | 5 |
+| SIP Phones | 4 | 4 | 0 |
+| TSP | 8 | 8 | 0 |
+| Templates | 2 | 2 | 0 |
+| Tracking Fields | 5 | 5 | 0 |
 | Webinars | 53 | 53 | 0 |
 
 
 ### Devices/H.323
 | Method | Path | operationId | v1 status |
 |---|---|---|---|
-| GET | `/devices` | listDevices | Raw |
-| POST | `/devices` | addDevice | Raw |
-| GET | `/devices/groups` | Getzdmgroupinfo | Raw |
-| POST | `/devices/zpa/assignment` | Assigndevicetoauser/commonarea | Raw |
-| GET | `/devices/zpa/settings` | GetZpaDeviceListProfileSettingOfaUser | Raw |
-| POST | `/devices/zpa/upgrade` | UpgradeZpas/app | Raw |
-| DELETE | `/devices/zpa/vendors/{vendor}/mac_addresses/{macAddress}` | DeleteZpaDeviceByVendorAndMacAddress | Raw |
-| GET | `/devices/zpa/zdm_groups/{zdmGroupId}/versions` | GetZpaVersioninfo | Raw |
-| DELETE | `/devices/{deviceId}` | deleteDevice | Raw |
-| GET | `/devices/{deviceId}` | getDevice | Raw |
-| PATCH | `/devices/{deviceId}` | updateDevice | Raw |
-| PATCH | `/devices/{deviceId}/assign_group` | assginGroup | Raw |
-| PATCH | `/devices/{deviceId}/assignment` | changeDeviceAssociation | Raw |
-| GET | `/h323/devices` | deviceList | Raw |
-| POST | `/h323/devices` | deviceCreate | Raw |
-| DELETE | `/h323/devices/{deviceId}` | deviceDelete | Raw |
-| PATCH | `/h323/devices/{deviceId}` | deviceUpdate | Raw |
+| GET | `/devices` | listDevices | Typed |
+| POST | `/devices` | addDevice | Typed |
+| GET | `/devices/groups` | Getzdmgroupinfo | Typed |
+| POST | `/devices/zpa/assignment` | Assigndevicetoauser/commonarea | Typed |
+| GET | `/devices/zpa/settings` | GetZpaDeviceListProfileSettingOfaUser | Typed |
+| POST | `/devices/zpa/upgrade` | UpgradeZpas/app | Typed |
+| DELETE | `/devices/zpa/vendors/{vendor}/mac_addresses/{macAddress}` | DeleteZpaDeviceByVendorAndMacAddress | Typed |
+| GET | `/devices/zpa/zdm_groups/{zdmGroupId}/versions` | GetZpaVersioninfo | Typed |
+| DELETE | `/devices/{deviceId}` | deleteDevice | Typed |
+| GET | `/devices/{deviceId}` | getDevice | Typed |
+| PATCH | `/devices/{deviceId}` | updateDevice | Typed |
+| PATCH | `/devices/{deviceId}/assign_group` | assginGroup | Typed |
+| PATCH | `/devices/{deviceId}/assignment` | changeDeviceAssociation | Typed |
+| GET | `/h323/devices` | deviceList | Typed |
+| POST | `/h323/devices` | deviceCreate | Typed |
+| DELETE | `/h323/devices/{deviceId}` | deviceDelete | Typed |
+| PATCH | `/h323/devices/{deviceId}` | deviceUpdate | Typed |
 
 ### Live Meeting Controls
 | Method | Path | operationId | v1 status |
 |---|---|---|---|
-| DELETE | `/live_meetings/{meetingId}/chat/messages/{messageId}` | deleteMeetingChatMessageById | Raw |
-| PATCH | `/live_meetings/{meetingId}/chat/messages/{messageId}` | updateMeetingChatMessageById | Raw |
-| PATCH | `/live_meetings/{meetingId}/events` | inMeetingControl | Raw |
-| PATCH | `/live_meetings/{meetingId}/rtms_app/status` | meetingRTMSStatusUpdate | Raw |
+| DELETE | `/live_meetings/{meetingId}/chat/messages/{messageId}` | deleteMeetingChatMessageById | Typed |
+| PATCH | `/live_meetings/{meetingId}/chat/messages/{messageId}` | updateMeetingChatMessageById | Typed |
+| PATCH | `/live_meetings/{meetingId}/events` | inMeetingControl | Typed |
+| PATCH | `/live_meetings/{meetingId}/rtms_app/status` | meetingRTMSStatusUpdate | Typed |
 
 ### Meeting Summaries
 | Method | Path | operationId | v1 status |
@@ -54,7 +54,7 @@ Raw-only (still fully callable via CallAsync): 46
 | GET | `/meetings/meeting_summaries` | Listmeetingsummaries | Typed |
 | DELETE | `/meetings/{meetingId}/meeting_summary` | Deletemeetingorwebinarsummary | Typed |
 | GET | `/meetings/{meetingId}/meeting_summary` | Getameetingsummary | Typed |
-| GET | `/users/{userId}/meeting_summaries` | ListUserMeetingSummaries | Raw |
+| GET | `/users/{userId}/meeting_summaries` | ListUserMeetingSummaries | Typed |
 
 ### Meetings core
 | Method | Path | operationId | v1 status |
@@ -90,13 +90,13 @@ Raw-only (still fully callable via CallAsync): 46
 ### Polls
 | Method | Path | operationId | v1 status |
 |---|---|---|---|
-| POST | `/meetings/{meetingId}/batch_polls` | createBatchPolls | Raw |
+| POST | `/meetings/{meetingId}/batch_polls` | createBatchPolls | Typed |
 | GET | `/meetings/{meetingId}/polls` | meetingPolls | Typed |
 | POST | `/meetings/{meetingId}/polls` | meetingPollCreate | Typed |
 | DELETE | `/meetings/{meetingId}/polls/{pollId}` | meetingPollDelete | Typed |
 | GET | `/meetings/{meetingId}/polls/{pollId}` | meetingPollGet | Typed |
 | PUT | `/meetings/{meetingId}/polls/{pollId}` | meetingPollUpdate | Typed |
-| GET | `/past_meetings/{meetingId}/polls` | listPastMeetingPolls | Raw |
+| GET | `/past_meetings/{meetingId}/polls` | listPastMeetingPolls | Typed |
 
 ### Recordings/Archiving
 | Method | Path | operationId | v1 status |
@@ -128,11 +128,11 @@ Raw-only (still fully callable via CallAsync): 46
 ### Registrants
 | Method | Path | operationId | v1 status |
 |---|---|---|---|
-| POST | `/meetings/{meetingId}/batch_registrants` | addBatchRegistrants | Raw |
+| POST | `/meetings/{meetingId}/batch_registrants` | addBatchRegistrants | Typed |
 | GET | `/meetings/{meetingId}/registrants` | meetingRegistrants | Typed |
 | POST | `/meetings/{meetingId}/registrants` | meetingRegistrantCreate | Typed |
-| GET | `/meetings/{meetingId}/registrants/questions` | meetingRegistrantsQuestionsGet | Raw |
-| PATCH | `/meetings/{meetingId}/registrants/questions` | meetingRegistrantQuestionUpdate | Raw |
+| GET | `/meetings/{meetingId}/registrants/questions` | meetingRegistrantsQuestionsGet | Typed |
+| PATCH | `/meetings/{meetingId}/registrants/questions` | meetingRegistrantQuestionUpdate | Typed |
 | PUT | `/meetings/{meetingId}/registrants/status` | meetingRegistrantStatus | Typed |
 | DELETE | `/meetings/{meetingId}/registrants/{registrantId}` | meetingregistrantdelete | Typed |
 | GET | `/meetings/{meetingId}/registrants/{registrantId}` | meetingRegistrantGet | Typed |
@@ -168,37 +168,37 @@ Raw-only (still fully callable via CallAsync): 46
 ### SIP Phones
 | Method | Path | operationId | v1 status |
 |---|---|---|---|
-| GET | `/sip_phones/phones` | ListSIPPhonePhones | Raw |
-| POST | `/sip_phones/phones` | EnableSIPPhonePhones | Raw |
-| DELETE | `/sip_phones/phones/{phoneId}` | deleteSIPPhonePhones | Raw |
-| PATCH | `/sip_phones/phones/{phoneId}` | UpdateSIPPhonePhones | Raw |
+| GET | `/sip_phones/phones` | ListSIPPhonePhones | Typed |
+| POST | `/sip_phones/phones` | EnableSIPPhonePhones | Typed |
+| DELETE | `/sip_phones/phones/{phoneId}` | deleteSIPPhonePhones | Typed |
+| PATCH | `/sip_phones/phones/{phoneId}` | UpdateSIPPhonePhones | Typed |
 
 ### TSP
 | Method | Path | operationId | v1 status |
 |---|---|---|---|
-| GET | `/tsp` | tsp | Raw |
-| PATCH | `/tsp` | tspUpdate | Raw |
-| GET | `/users/{userId}/tsp` | userTSPs | Raw |
-| POST | `/users/{userId}/tsp` | userTSPCreate | Raw |
-| PATCH | `/users/{userId}/tsp/settings` | tspUrlUpdate | Raw |
-| DELETE | `/users/{userId}/tsp/{tspId}` | userTSPDelete | Raw |
-| GET | `/users/{userId}/tsp/{tspId}` | userTSP | Raw |
-| PATCH | `/users/{userId}/tsp/{tspId}` | userTSPUpdate | Raw |
+| GET | `/tsp` | tsp | Typed |
+| PATCH | `/tsp` | tspUpdate | Typed |
+| GET | `/users/{userId}/tsp` | userTSPs | Typed |
+| POST | `/users/{userId}/tsp` | userTSPCreate | Typed |
+| PATCH | `/users/{userId}/tsp/settings` | tspUrlUpdate | Typed |
+| DELETE | `/users/{userId}/tsp/{tspId}` | userTSPDelete | Typed |
+| GET | `/users/{userId}/tsp/{tspId}` | userTSP | Typed |
+| PATCH | `/users/{userId}/tsp/{tspId}` | userTSPUpdate | Typed |
 
 ### Templates
 | Method | Path | operationId | v1 status |
 |---|---|---|---|
-| GET | `/users/{userId}/meeting_templates` | listMeetingTemplates | Raw |
-| POST | `/users/{userId}/meeting_templates` | meetingTemplateCreate | Raw |
+| GET | `/users/{userId}/meeting_templates` | listMeetingTemplates | Typed |
+| POST | `/users/{userId}/meeting_templates` | meetingTemplateCreate | Typed |
 
 ### Tracking Fields
 | Method | Path | operationId | v1 status |
 |---|---|---|---|
-| GET | `/tracking_fields` | trackingfieldList | Raw |
-| POST | `/tracking_fields` | trackingfieldCreate | Raw |
-| DELETE | `/tracking_fields/{fieldId}` | trackingfieldDelete | Raw |
-| GET | `/tracking_fields/{fieldId}` | trackingfieldGet | Raw |
-| PATCH | `/tracking_fields/{fieldId}` | trackingfieldUpdate | Raw |
+| GET | `/tracking_fields` | trackingfieldList | Typed |
+| POST | `/tracking_fields` | trackingfieldCreate | Typed |
+| DELETE | `/tracking_fields/{fieldId}` | trackingfieldDelete | Typed |
+| GET | `/tracking_fields/{fieldId}` | trackingfieldGet | Typed |
+| PATCH | `/tracking_fields/{fieldId}` | trackingfieldUpdate | Typed |
 
 ### Webinars
 | Method | Path | operationId | v1 status |
