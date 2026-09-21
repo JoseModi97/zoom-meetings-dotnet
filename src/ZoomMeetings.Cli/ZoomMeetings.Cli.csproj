@@ -14,9 +14,10 @@
     <ToolCommandName>zoom-meetings</ToolCommandName>
     <PackageId>dotnet-zoom-meetings</PackageId>
     <Version>0.1.0</Version>
+    <Authors>Modi97</Authors>
     <Description>CLI for the Zoom Meetings API: meetings, registrants, polls, recordings, summaries, reports, and webinars, plus a raw command for any of Zoom's other REST endpoints. Built on the ZoomMeetings .NET client.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageTags>zoom;zoom-api;zoom-meetings;cli;dotnet-tool;video-conferencing;webinar</PackageTags>
+    <PackageTags>zoom;zoom-api;zoom-meetings;cli;dotnet-tool;video-conferencing;webinar;server-to-server-oauth;csharp;dotnet</PackageTags>
     <PackageReleaseNotes>0.1.0: Initial release.</PackageReleaseNotes>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageProjectUrl>https://github.com/JoseModi97/zoom-meetings-dotnet</PackageProjectUrl>

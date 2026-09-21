@@ -10,9 +10,10 @@
     <!-- Package Metadata adhering to Microsoft Package Authoring Best Practices -->
     <PackageId>ZoomMeetings.AspNetCore</PackageId>
     <Version>0.1.0</Version>
+    <Authors>Modi97</Authors>
     <Description>ASP.NET Core integration for ZoomMeetings: AddZoomMeetings(...) DI registration (with keyed-service support for a second "sandbox" Zoom account/app) and a Minimal API webhook endpoint that verifies Zoom's X-Zm-Signature and answers the endpoint.url_validation handshake.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageTags>zoom;zoom-api;zoom-meetings;aspnetcore;dependency-injection;webhook;oauth2;dotnet;csharp</PackageTags>
+    <PackageTags>zoom;zoom-api;zoom-meetings;aspnetcore;dependency-injection;webhook;webhooks;oauth2;dotnet;csharp;api-client;sdk;server-to-server-oauth</PackageTags>
     <PackageReleaseNotes>0.1.0: Initial release.</PackageReleaseNotes>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageProjectUrl>https://github.com/JoseModi97/zoom-meetings-dotnet</PackageProjectUrl>

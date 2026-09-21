@@ -1,8 +1,17 @@
 # ZoomMeetings — Complete Zoom Meetings API Client for .NET
 
+[![NuGet Version](https://img.shields.io/nuget/v/ZoomMeetings.svg?style=flat-square&color=0B5CFF)](https://www.nuget.org/packages/ZoomMeetings)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/ZoomMeetings.svg?style=flat-square)](https://www.nuget.org/packages/ZoomMeetings)
+[![Build, Test & Publish to NuGet](https://img.shields.io/github/actions/workflow/status/JoseModi97/zoom-meetings-dotnet/release.yml?branch=master&style=flat-square&label=Build%2C%20Test%20%26%20Publish%20to%20NuGet)](https://github.com/JoseModi97/zoom-meetings-dotnet/actions/workflows/release.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)
+[![.NET](https://img.shields.io/badge/.NET-netstandard2.0%20%7C%20net8.0%20%7C%20net10.0-512BD4?style=flat-square&logo=dotnet)](https://dotnet.microsoft.com/)
+[![CLI Tool](https://img.shields.io/badge/CLI-dotnet--zoom--meetings-0B5CFF?style=flat-square&logo=gnubash&logoColor=white)](https://www.nuget.org/packages/dotnet-zoom-meetings)
+
 Idiomatic, high-performance .NET / C# client library and CLI tool providing **100% typed coverage (all 186 operations)** for the [Zoom Meetings REST API](https://developers.zoom.us/docs/api/).
 
-From scheduling meetings and moderating live sessions to fetching AI Companion summaries, orchestrating cloud recordings, producing branded webinars, and auditing enterprise compliance — every tool is fully typed, tested, and ready on day one.
+Authored by **Modi97** / [Jose Modi](https://github.com/JoseModi97).
+
+> **Status:** Released (v0.1.0), published to [NuGet.org](https://www.nuget.org/packages/ZoomMeetings). All three packages are implemented, tested, and verified live against Zoom's Server-to-Server API.
 
 > **Unofficial.** This project is not affiliated with, endorsed by, or sponsored by Zoom Video Communications, Inc. "Zoom" is a trademark of Zoom Video Communications, Inc.
 
