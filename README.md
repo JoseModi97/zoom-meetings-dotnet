@@ -89,19 +89,20 @@ builder.Services.AddZoomMeetings(config =>
 });
 ```
 
-## Typed operations (v1)
+## Typed operations
+
+**140 of Zoom's 186 Meetings-API operations are typed** — every operation in Meetings core, Recordings/Archiving, Reports, and Webinars (100% each). The remaining 46 are lower-traffic admin/device management endpoints (Devices/H.323, SIP Phones, TSP, Tracking Fields, Templates, Live Meeting Controls) plus a handful of batch/question endpoints under Registrants and Polls — **not unsupported, just not hand-typed yet**, and fully reachable via the raw escape hatch below. See [docs/ENDPOINT-COVERAGE.md](docs/ENDPOINT-COVERAGE.md) for the full, spec-generated per-operation list.
 
 | Resource | Methods |
 |---|---|
-| Meetings | `CreateMeetingAsync`, `GetMeetingAsync`, `UpdateMeetingAsync`, `DeleteMeetingAsync`, `ListMeetingsAsync`/`EnumerateMeetingsAsync`, `ListUpcomingMeetingsAsync`, `UpdateMeetingStatusAsync`, `GetMeetingInvitationAsync` |
-| Registrants | `ListRegistrantsAsync`/`EnumerateRegistrantsAsync`, `AddRegistrantAsync`, `GetRegistrantAsync`, `DeleteRegistrantAsync`, `UpdateRegistrantStatusAsync` |
-| Polls | `ListPollsAsync`, `CreatePollAsync`, `GetPollAsync`, `UpdatePollAsync`, `DeletePollAsync` |
-| Cloud Recordings | `GetMeetingRecordingsAsync`, `DeleteMeetingRecordingsAsync`, `DeleteRecordingFileAsync`, `GetRecordingSettingsAsync`, `UpdateRecordingSettingsAsync` |
-| Meeting Summaries | `GetMeetingSummaryAsync`, `ListAccountMeetingSummariesAsync`, `DeleteMeetingSummaryAsync` |
-| Reports | `GetMeetingReportDetailAsync`, `GetMeetingReportParticipantsAsync` |
-| Webinars | `CreateWebinarAsync`, `GetWebinarAsync`, `UpdateWebinarAsync`, `DeleteWebinarAsync`, `ListWebinarsAsync`/`EnumerateWebinarsAsync`, plus the webinar equivalents of every Registrants method above |
-
-That's ~40 of Zoom's ~186 Meetings-API operations. **The other ~146 are not unsupported — they just don't have a dedicated C# method yet.** See [docs/ENDPOINT-COVERAGE.md](docs/ENDPOINT-COVERAGE.md) for the full, spec-generated list of what's typed vs. raw-only.
+| Meetings | Create/Get/Update/Delete/List/Enumerate/ListUpcoming/UpdateStatus/GetInvitation, plus invite links, join tokens (live streaming/local archiving/local recording), livestream get/update/status, open apps add/delete, SIP dialing, survey get/update/delete, token, past-meeting details/instances/participants/Q&A, and a user's PAC accounts |
+| Registrants | List/Enumerate/Add/Get/Delete/UpdateStatus (shared by meetings and webinars) |
+| Polls | List/Create/Get/Update/Delete (shared by meetings and webinars) |
+| Cloud Recordings | Get/Delete/settings get-update, recover (single file and whole meeting), analytics details/summary, recording registrants (list/add/questions get-update/status), transcript get/delete, a user's full recordings list |
+| Archiving | Account-wide archived-files list/statistics/download-audit, per-file auto-delete update, per-meeting archived files get/delete |
+| Meeting Summaries | Get/List(account)/Delete |
+| Reports | All 22 `/report/*` endpoints: activities, billing (+invoices), cloud recording usage, daily usage, disclaimer, history, meeting activity logs, meeting/webinar detail+participants+polls+Q&A+survey, operation logs, remote support, telephone, upcoming events, user/host reports |
+| Webinars | Create/Get/Update/Delete/List/Enumerate, registrants (incl. registration questions, batch add), invite links, join tokens, livestream, SIP dialing, survey, token, status, tracking sources, templates, past-webinar absentees/instances/participants/polls/Q&A, polls, panelists, and full branding (name tags, virtual backgrounds, wallpaper — including the two file-upload endpoints via `UploadFileAsync`) |
 
 ## The raw escape hatch
 

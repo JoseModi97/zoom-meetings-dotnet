@@ -8,9 +8,12 @@ major version bump.
 
 Initial release.
 
-- `ZoomClient` with typed methods for Meetings, Registrants, Polls, Cloud Recordings, Meeting
-  Summaries, Webinars, and two Reports endpoints (~40 of Zoom's ~186 Meetings-API operations —
-  see `docs/ENDPOINT-COVERAGE.md`), plus `CallAsync` reaching every other operation.
+- `ZoomClient` with typed methods for 140 of Zoom's 186 Meetings-API operations — full coverage of
+  Meetings core, Recordings/Archiving, Reports, and Webinars, plus Registrants, Polls, and Meeting
+  Summaries (see `docs/ENDPOINT-COVERAGE.md`). The remaining 46 operations (Devices/H.323, SIP
+  Phones, TSP, Tracking Fields, Templates, Live Meeting Controls, and a few batch/question
+  endpoints) are reachable via `CallAsync`/`UploadFileAsync`, which reach every operation in the
+  spec regardless of typed-method coverage.
 - Server-to-Server OAuth2 (account_credentials grant) with token caching/refresh and 401 retry.
 - 429 retry with `Retry-After` handling.
 - `ZoomMeetings.AspNetCore`: `AddZoomMeetings(...)` DI registration (including named/keyed

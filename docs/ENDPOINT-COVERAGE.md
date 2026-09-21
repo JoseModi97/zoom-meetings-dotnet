@@ -1,22 +1,22 @@
 Total operations: 186
-Typed in v1: 38
-Raw-only (still fully callable via CallAsync): 148
+Typed in v1: 140
+Raw-only (still fully callable via CallAsync): 46
 
 | Domain | Total | Typed v1 | Raw-only |
 |---|---|---|---|
 | Devices/H.323 | 17 | 0 | 17 |
 | Live Meeting Controls | 4 | 0 | 4 |
 | Meeting Summaries | 4 | 3 | 1 |
-| Meetings core | 27 | 8 | 19 |
+| Meetings core | 27 | 27 | 0 |
 | Polls | 7 | 5 | 2 |
-| Recordings/Archiving | 23 | 5 | 18 |
+| Recordings/Archiving | 23 | 23 | 0 |
 | Registrants | 8 | 5 | 3 |
-| Reports | 24 | 2 | 22 |
+| Reports | 24 | 24 | 0 |
 | SIP Phones | 4 | 0 | 4 |
 | TSP | 8 | 0 | 8 |
 | Templates | 2 | 0 | 2 |
 | Tracking Fields | 5 | 0 | 5 |
-| Webinars | 53 | 10 | 43 |
+| Webinars | 53 | 53 | 0 |
 
 
 ### Devices/H.323
@@ -63,28 +63,28 @@ Raw-only (still fully callable via CallAsync): 148
 | GET | `/meetings/{meetingId}` | meeting | Typed |
 | PATCH | `/meetings/{meetingId}` | meetingUpdate | Typed |
 | GET | `/meetings/{meetingId}/invitation` | meetingInvitation | Typed |
-| POST | `/meetings/{meetingId}/invite_links` | meetingInviteLinksCreate | Raw |
-| GET | `/meetings/{meetingId}/jointoken/live_streaming` | meetingLiveStreamingJoinToken | Raw |
-| GET | `/meetings/{meetingId}/jointoken/local_archiving` | meetingLocalArchivingArchiveToken | Raw |
-| GET | `/meetings/{meetingId}/jointoken/local_recording` | meetingLocalRecordingJoinToken | Raw |
-| GET | `/meetings/{meetingId}/livestream` | getMeetingLiveStreamDetails | Raw |
-| PATCH | `/meetings/{meetingId}/livestream` | meetingLiveStreamUpdate | Raw |
-| PATCH | `/meetings/{meetingId}/livestream/status` | meetingLiveStreamStatusUpdate | Raw |
-| DELETE | `/meetings/{meetingId}/open_apps` | meetingAppDelete | Raw |
-| POST | `/meetings/{meetingId}/open_apps` | meetingAppAdd | Raw |
-| POST | `/meetings/{meetingId}/sip_dialing` | getSipDialingWithPasscode | Raw |
+| POST | `/meetings/{meetingId}/invite_links` | meetingInviteLinksCreate | Typed |
+| GET | `/meetings/{meetingId}/jointoken/live_streaming` | meetingLiveStreamingJoinToken | Typed |
+| GET | `/meetings/{meetingId}/jointoken/local_archiving` | meetingLocalArchivingArchiveToken | Typed |
+| GET | `/meetings/{meetingId}/jointoken/local_recording` | meetingLocalRecordingJoinToken | Typed |
+| GET | `/meetings/{meetingId}/livestream` | getMeetingLiveStreamDetails | Typed |
+| PATCH | `/meetings/{meetingId}/livestream` | meetingLiveStreamUpdate | Typed |
+| PATCH | `/meetings/{meetingId}/livestream/status` | meetingLiveStreamStatusUpdate | Typed |
+| DELETE | `/meetings/{meetingId}/open_apps` | meetingAppDelete | Typed |
+| POST | `/meetings/{meetingId}/open_apps` | meetingAppAdd | Typed |
+| POST | `/meetings/{meetingId}/sip_dialing` | getSipDialingWithPasscode | Typed |
 | PUT | `/meetings/{meetingId}/status` | meetingStatus | Typed |
-| DELETE | `/meetings/{meetingId}/survey` | meetingSurveyDelete | Raw |
-| GET | `/meetings/{meetingId}/survey` | meetingSurveyGet | Raw |
-| PATCH | `/meetings/{meetingId}/survey` | meetingSurveyUpdate | Raw |
-| GET | `/meetings/{meetingId}/token` | meetingToken | Raw |
-| GET | `/past_meetings/{meetingId}` | pastMeetingDetails | Raw |
-| GET | `/past_meetings/{meetingId}/instances` | pastMeetings | Raw |
-| GET | `/past_meetings/{meetingId}/participants` | pastMeetingParticipants | Raw |
-| GET | `/past_meetings/{meetingId}/qa` | listPastMeetingQA | Raw |
+| DELETE | `/meetings/{meetingId}/survey` | meetingSurveyDelete | Typed |
+| GET | `/meetings/{meetingId}/survey` | meetingSurveyGet | Typed |
+| PATCH | `/meetings/{meetingId}/survey` | meetingSurveyUpdate | Typed |
+| GET | `/meetings/{meetingId}/token` | meetingToken | Typed |
+| GET | `/past_meetings/{meetingId}` | pastMeetingDetails | Typed |
+| GET | `/past_meetings/{meetingId}/instances` | pastMeetings | Typed |
+| GET | `/past_meetings/{meetingId}/participants` | pastMeetingParticipants | Typed |
+| GET | `/past_meetings/{meetingId}/qa` | listPastMeetingQA | Typed |
 | GET | `/users/{userId}/meetings` | meetings | Typed |
 | POST | `/users/{userId}/meetings` | meetingCreate | Typed |
-| GET | `/users/{userId}/pac` | userPACs | Raw |
+| GET | `/users/{userId}/pac` | userPACs | Typed |
 | GET | `/users/{userId}/upcoming_meetings` | listUpcomingMeeting | Typed |
 
 ### Polls
@@ -101,29 +101,29 @@ Raw-only (still fully callable via CallAsync): 148
 ### Recordings/Archiving
 | Method | Path | operationId | v1 status |
 |---|---|---|---|
-| GET | `/archive_files` | listArchivedFiles | Raw |
-| GET | `/archive_files/download_audit` | listArchiveFileDownloadAudit | Raw |
-| GET | `/archive_files/statistics` | getArchivedFileStatistics | Raw |
-| PATCH | `/archive_files/{fileId}` | updateArchivedFile | Raw |
+| GET | `/archive_files` | listArchivedFiles | Typed |
+| GET | `/archive_files/download_audit` | listArchiveFileDownloadAudit | Typed |
+| GET | `/archive_files/statistics` | getArchivedFileStatistics | Typed |
+| PATCH | `/archive_files/{fileId}` | updateArchivedFile | Typed |
 | DELETE | `/meetings/{meetingId}/recordings` | recordingDelete | Typed |
 | GET | `/meetings/{meetingId}/recordings` | recordingGet | Typed |
-| GET | `/meetings/{meetingId}/recordings/analytics_details` | analytics_details | Raw |
-| GET | `/meetings/{meetingId}/recordings/analytics_summary` | analytics_summary | Raw |
-| GET | `/meetings/{meetingId}/recordings/registrants` | meetingRecordingRegistrants | Raw |
-| POST | `/meetings/{meetingId}/recordings/registrants` | meetingRecordingRegistrantCreate | Raw |
-| GET | `/meetings/{meetingId}/recordings/registrants/questions` | recordingRegistrantsQuestionsGet | Raw |
-| PATCH | `/meetings/{meetingId}/recordings/registrants/questions` | recordingRegistrantQuestionUpdate | Raw |
-| PUT | `/meetings/{meetingId}/recordings/registrants/status` | meetingRecordingRegistrantStatus | Raw |
+| GET | `/meetings/{meetingId}/recordings/analytics_details` | analytics_details | Typed |
+| GET | `/meetings/{meetingId}/recordings/analytics_summary` | analytics_summary | Typed |
+| GET | `/meetings/{meetingId}/recordings/registrants` | meetingRecordingRegistrants | Typed |
+| POST | `/meetings/{meetingId}/recordings/registrants` | meetingRecordingRegistrantCreate | Typed |
+| GET | `/meetings/{meetingId}/recordings/registrants/questions` | recordingRegistrantsQuestionsGet | Typed |
+| PATCH | `/meetings/{meetingId}/recordings/registrants/questions` | recordingRegistrantQuestionUpdate | Typed |
+| PUT | `/meetings/{meetingId}/recordings/registrants/status` | meetingRecordingRegistrantStatus | Typed |
 | GET | `/meetings/{meetingId}/recordings/settings` | recordingSettingUpdate | Typed |
 | PATCH | `/meetings/{meetingId}/recordings/settings` | recordingSettingsUpdate | Typed |
 | DELETE | `/meetings/{meetingId}/recordings/{recordingId}` | recordingDeleteOne | Typed |
-| PUT | `/meetings/{meetingId}/recordings/{recordingId}/status` | recordingStatusUpdateOne | Raw |
-| DELETE | `/meetings/{meetingId}/transcript` | DeleteMeetingTranscript | Raw |
-| GET | `/meetings/{meetingId}/transcript` | GetMeetingTranscript | Raw |
-| PUT | `/meetings/{meetingUUID}/recordings/status` | recordingStatusUpdate | Raw |
-| DELETE | `/past_meetings/{meetingUUID}/archive_files` | deleteArchivedFiles | Raw |
-| GET | `/past_meetings/{meetingUUID}/archive_files` | getArchivedFiles | Raw |
-| GET | `/users/{userId}/recordings` | recordingsList | Raw |
+| PUT | `/meetings/{meetingId}/recordings/{recordingId}/status` | recordingStatusUpdateOne | Typed |
+| DELETE | `/meetings/{meetingId}/transcript` | DeleteMeetingTranscript | Typed |
+| GET | `/meetings/{meetingId}/transcript` | GetMeetingTranscript | Typed |
+| PUT | `/meetings/{meetingUUID}/recordings/status` | recordingStatusUpdate | Typed |
+| DELETE | `/past_meetings/{meetingUUID}/archive_files` | deleteArchivedFiles | Typed |
+| GET | `/past_meetings/{meetingUUID}/archive_files` | getArchivedFiles | Typed |
+| GET | `/users/{userId}/recordings` | recordingsList | Typed |
 
 ### Registrants
 | Method | Path | operationId | v1 status |
@@ -140,30 +140,30 @@ Raw-only (still fully callable via CallAsync): 148
 ### Reports
 | Method | Path | operationId | v1 status |
 |---|---|---|---|
-| GET | `/report/activities` | reportSignInSignOutActivities | Raw |
-| GET | `/report/billing` | getBillingReport | Raw |
-| GET | `/report/billing/invoices` | getBillingInvoicesReports | Raw |
-| GET | `/report/cloud_recording` | reportCloudRecording | Raw |
-| GET | `/report/daily` | reportDaily | Raw |
-| GET | `/report/disclaimer` | Getdisclaimerreport | Raw |
-| GET | `/report/history_meetings` | Gethistorymeetingandwebinarlist | Raw |
-| GET | `/report/meeting_activities` | reportMeetingactivitylogs | Raw |
+| GET | `/report/activities` | reportSignInSignOutActivities | Typed |
+| GET | `/report/billing` | getBillingReport | Typed |
+| GET | `/report/billing/invoices` | getBillingInvoicesReports | Typed |
+| GET | `/report/cloud_recording` | reportCloudRecording | Typed |
+| GET | `/report/daily` | reportDaily | Typed |
+| GET | `/report/disclaimer` | Getdisclaimerreport | Typed |
+| GET | `/report/history_meetings` | Gethistorymeetingandwebinarlist | Typed |
+| GET | `/report/meeting_activities` | reportMeetingactivitylogs | Typed |
 | GET | `/report/meetings/{meetingId}` | reportMeetingDetails | Typed |
 | GET | `/report/meetings/{meetingId}/participants` | reportMeetingParticipants | Typed |
-| GET | `/report/meetings/{meetingId}/polls` | reportMeetingPolls | Raw |
-| GET | `/report/meetings/{meetingId}/qa` | reportMeetingQA | Raw |
-| GET | `/report/meetings/{meetingId}/survey` | reportMeetingSurvey | Raw |
-| GET | `/report/operationlogs` | reportOperationLogs | Raw |
-| GET | `/report/remote_support` | Getremotesupportreport | Raw |
-| GET | `/report/telephone` | reportTelephone | Raw |
-| GET | `/report/upcoming_events` | reportUpcomingEvents | Raw |
-| GET | `/report/users` | reportUsers | Raw |
-| GET | `/report/users/{userId}/meetings` | reportMeetings | Raw |
-| GET | `/report/webinars/{webinarId}` | reportWebinarDetails | Raw |
-| GET | `/report/webinars/{webinarId}/participants` | reportWebinarParticipants | Raw |
-| GET | `/report/webinars/{webinarId}/polls` | reportWebinarPolls | Raw |
-| GET | `/report/webinars/{webinarId}/qa` | reportWebinarQA | Raw |
-| GET | `/report/webinars/{webinarId}/survey` | reportWebinarSurvey | Raw |
+| GET | `/report/meetings/{meetingId}/polls` | reportMeetingPolls | Typed |
+| GET | `/report/meetings/{meetingId}/qa` | reportMeetingQA | Typed |
+| GET | `/report/meetings/{meetingId}/survey` | reportMeetingSurvey | Typed |
+| GET | `/report/operationlogs` | reportOperationLogs | Typed |
+| GET | `/report/remote_support` | Getremotesupportreport | Typed |
+| GET | `/report/telephone` | reportTelephone | Typed |
+| GET | `/report/upcoming_events` | reportUpcomingEvents | Typed |
+| GET | `/report/users` | reportUsers | Typed |
+| GET | `/report/users/{userId}/meetings` | reportMeetings | Typed |
+| GET | `/report/webinars/{webinarId}` | reportWebinarDetails | Typed |
+| GET | `/report/webinars/{webinarId}/participants` | reportWebinarParticipants | Typed |
+| GET | `/report/webinars/{webinarId}/polls` | reportWebinarPolls | Typed |
+| GET | `/report/webinars/{webinarId}/qa` | reportWebinarQA | Typed |
+| GET | `/report/webinars/{webinarId}/survey` | reportWebinarSurvey | Typed |
 
 ### SIP Phones
 | Method | Path | operationId | v1 status |
@@ -203,56 +203,56 @@ Raw-only (still fully callable via CallAsync): 148
 ### Webinars
 | Method | Path | operationId | v1 status |
 |---|---|---|---|
-| DELETE | `/live_webinars/{webinarId}/chat/messages/{messageId}` | deleteWebinarChatMessageById | Raw |
-| GET | `/past_webinars/{webinarId}/absentees` | webinarAbsentees | Raw |
-| GET | `/past_webinars/{webinarId}/instances` | pastWebinars | Raw |
-| GET | `/past_webinars/{webinarId}/participants` | listWebinarParticipants | Raw |
-| GET | `/past_webinars/{webinarId}/polls` | listPastWebinarPollResults | Raw |
-| GET | `/past_webinars/{webinarId}/qa` | listPastWebinarQA | Raw |
-| GET | `/users/{userId}/webinar_templates` | listWebinarTemplates | Raw |
-| POST | `/users/{userId}/webinar_templates` | webinarTemplateCreate | Raw |
+| DELETE | `/live_webinars/{webinarId}/chat/messages/{messageId}` | deleteWebinarChatMessageById | Typed |
+| GET | `/past_webinars/{webinarId}/absentees` | webinarAbsentees | Typed |
+| GET | `/past_webinars/{webinarId}/instances` | pastWebinars | Typed |
+| GET | `/past_webinars/{webinarId}/participants` | listWebinarParticipants | Typed |
+| GET | `/past_webinars/{webinarId}/polls` | listPastWebinarPollResults | Typed |
+| GET | `/past_webinars/{webinarId}/qa` | listPastWebinarQA | Typed |
+| GET | `/users/{userId}/webinar_templates` | listWebinarTemplates | Typed |
+| POST | `/users/{userId}/webinar_templates` | webinarTemplateCreate | Typed |
 | GET | `/users/{userId}/webinars` | webinars | Typed |
 | POST | `/users/{userId}/webinars` | webinarCreate | Typed |
 | DELETE | `/webinars/{webinarId}` | webinarDelete | Typed |
 | GET | `/webinars/{webinarId}` | webinar | Typed |
 | PATCH | `/webinars/{webinarId}` | webinarUpdate | Typed |
-| POST | `/webinars/{webinarId}/batch_registrants` | addBatchWebinarRegistrants | Raw |
-| GET | `/webinars/{webinarId}/branding` | getWebinarBranding | Raw |
-| DELETE | `/webinars/{webinarId}/branding/name_tags` | deleteWebinarBrandingNameTag | Raw |
-| POST | `/webinars/{webinarId}/branding/name_tags` | createWebinarBrandingNameTag | Raw |
-| PATCH | `/webinars/{webinarId}/branding/name_tags/{nameTagId}` | updateWebinarBrandingNameTag | Raw |
-| DELETE | `/webinars/{webinarId}/branding/virtual_backgrounds` | deleteWebinarBrandingVB | Raw |
-| PATCH | `/webinars/{webinarId}/branding/virtual_backgrounds` | setWebinarBrandingVB | Raw |
-| POST | `/webinars/{webinarId}/branding/virtual_backgrounds` | uploadWebinarBrandingVB | Raw |
-| DELETE | `/webinars/{webinarId}/branding/wallpaper` | deleteWebinarBrandingWallpaper | Raw |
-| POST | `/webinars/{webinarId}/branding/wallpaper` | uploadWebinarBrandingWallpaper | Raw |
-| POST | `/webinars/{webinarId}/invite_links` | webinarInviteLinksCreate | Raw |
-| GET | `/webinars/{webinarId}/jointoken/live_streaming` | webinarLiveStreamingJoinToken | Raw |
-| GET | `/webinars/{webinarId}/jointoken/local_archiving` | webinarLocalArchivingArchiveToken | Raw |
-| GET | `/webinars/{webinarId}/jointoken/local_recording` | webinarLocalRecordingJoinToken | Raw |
-| GET | `/webinars/{webinarId}/livestream` | getWebinarLiveStreamDetails | Raw |
-| PATCH | `/webinars/{webinarId}/livestream` | webinarLiveStreamUpdate | Raw |
-| PATCH | `/webinars/{webinarId}/livestream/status` | webinarLiveStreamStatusUpdate | Raw |
-| DELETE | `/webinars/{webinarId}/panelists` | webinarPanelistsDelete | Raw |
-| GET | `/webinars/{webinarId}/panelists` | webinarPanelists | Raw |
-| POST | `/webinars/{webinarId}/panelists` | webinarPanelistCreate | Raw |
-| DELETE | `/webinars/{webinarId}/panelists/{panelistId}` | webinarPanelistDelete | Raw |
-| GET | `/webinars/{webinarId}/polls` | webinarPolls | Raw |
-| POST | `/webinars/{webinarId}/polls` | webinarPollCreate | Raw |
-| DELETE | `/webinars/{webinarId}/polls/{pollId}` | webinarPollDelete | Raw |
-| GET | `/webinars/{webinarId}/polls/{pollId}` | webinarPollGet | Raw |
-| PUT | `/webinars/{webinarId}/polls/{pollId}` | webinarPollUpdate | Raw |
+| POST | `/webinars/{webinarId}/batch_registrants` | addBatchWebinarRegistrants | Typed |
+| GET | `/webinars/{webinarId}/branding` | getWebinarBranding | Typed |
+| DELETE | `/webinars/{webinarId}/branding/name_tags` | deleteWebinarBrandingNameTag | Typed |
+| POST | `/webinars/{webinarId}/branding/name_tags` | createWebinarBrandingNameTag | Typed |
+| PATCH | `/webinars/{webinarId}/branding/name_tags/{nameTagId}` | updateWebinarBrandingNameTag | Typed |
+| DELETE | `/webinars/{webinarId}/branding/virtual_backgrounds` | deleteWebinarBrandingVB | Typed |
+| PATCH | `/webinars/{webinarId}/branding/virtual_backgrounds` | setWebinarBrandingVB | Typed |
+| POST | `/webinars/{webinarId}/branding/virtual_backgrounds` | uploadWebinarBrandingVB | Typed |
+| DELETE | `/webinars/{webinarId}/branding/wallpaper` | deleteWebinarBrandingWallpaper | Typed |
+| POST | `/webinars/{webinarId}/branding/wallpaper` | uploadWebinarBrandingWallpaper | Typed |
+| POST | `/webinars/{webinarId}/invite_links` | webinarInviteLinksCreate | Typed |
+| GET | `/webinars/{webinarId}/jointoken/live_streaming` | webinarLiveStreamingJoinToken | Typed |
+| GET | `/webinars/{webinarId}/jointoken/local_archiving` | webinarLocalArchivingArchiveToken | Typed |
+| GET | `/webinars/{webinarId}/jointoken/local_recording` | webinarLocalRecordingJoinToken | Typed |
+| GET | `/webinars/{webinarId}/livestream` | getWebinarLiveStreamDetails | Typed |
+| PATCH | `/webinars/{webinarId}/livestream` | webinarLiveStreamUpdate | Typed |
+| PATCH | `/webinars/{webinarId}/livestream/status` | webinarLiveStreamStatusUpdate | Typed |
+| DELETE | `/webinars/{webinarId}/panelists` | webinarPanelistsDelete | Typed |
+| GET | `/webinars/{webinarId}/panelists` | webinarPanelists | Typed |
+| POST | `/webinars/{webinarId}/panelists` | webinarPanelistCreate | Typed |
+| DELETE | `/webinars/{webinarId}/panelists/{panelistId}` | webinarPanelistDelete | Typed |
+| GET | `/webinars/{webinarId}/polls` | webinarPolls | Typed |
+| POST | `/webinars/{webinarId}/polls` | webinarPollCreate | Typed |
+| DELETE | `/webinars/{webinarId}/polls/{pollId}` | webinarPollDelete | Typed |
+| GET | `/webinars/{webinarId}/polls/{pollId}` | webinarPollGet | Typed |
+| PUT | `/webinars/{webinarId}/polls/{pollId}` | webinarPollUpdate | Typed |
 | GET | `/webinars/{webinarId}/registrants` | webinarRegistrants | Typed |
 | POST | `/webinars/{webinarId}/registrants` | webinarRegistrantCreate | Typed |
-| GET | `/webinars/{webinarId}/registrants/questions` | webinarRegistrantsQuestionsGet | Raw |
-| PATCH | `/webinars/{webinarId}/registrants/questions` | webinarRegistrantQuestionUpdate | Raw |
+| GET | `/webinars/{webinarId}/registrants/questions` | webinarRegistrantsQuestionsGet | Typed |
+| PATCH | `/webinars/{webinarId}/registrants/questions` | webinarRegistrantQuestionUpdate | Typed |
 | PUT | `/webinars/{webinarId}/registrants/status` | webinarRegistrantStatus | Typed |
 | DELETE | `/webinars/{webinarId}/registrants/{registrantId}` | deleteWebinarRegistrant | Typed |
 | GET | `/webinars/{webinarId}/registrants/{registrantId}` | webinarRegistrantGet | Typed |
-| POST | `/webinars/{webinarId}/sip_dialing` | getWebinarSipDialingWithPasscode | Raw |
-| PUT | `/webinars/{webinarId}/status` | webinarStatus | Raw |
-| DELETE | `/webinars/{webinarId}/survey` | webinarSurveyDelete | Raw |
-| GET | `/webinars/{webinarId}/survey` | webinarSurveyGet | Raw |
-| PATCH | `/webinars/{webinarId}/survey` | webinarSurveyUpdate | Raw |
-| GET | `/webinars/{webinarId}/token` | webinarToken | Raw |
-| GET | `/webinars/{webinarId}/tracking_sources` | getTrackingSources | Raw |
+| POST | `/webinars/{webinarId}/sip_dialing` | getWebinarSipDialingWithPasscode | Typed |
+| PUT | `/webinars/{webinarId}/status` | webinarStatus | Typed |
+| DELETE | `/webinars/{webinarId}/survey` | webinarSurveyDelete | Typed |
+| GET | `/webinars/{webinarId}/survey` | webinarSurveyGet | Typed |
+| PATCH | `/webinars/{webinarId}/survey` | webinarSurveyUpdate | Typed |
+| GET | `/webinars/{webinarId}/token` | webinarToken | Typed |
+| GET | `/webinars/{webinarId}/tracking_sources` | getTrackingSources | Typed |
