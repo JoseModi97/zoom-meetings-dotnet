@@ -166,6 +166,8 @@ zoom-meetings --help
 
 Credentials come from `ZOOM_ACCOUNT_ID`/`ZOOM_CLIENT_ID`/`ZOOM_CLIENT_SECRET` (or `ZOOM_<PROFILE>_*` when `--profile <name>` is passed), or an `appsettings.json` under a matching `Zoom`/`Zoom:<Profile>` section walked up from the current directory.
 
+> **Git Bash on Windows**: MSYS2's automatic path conversion rewrites any argument starting with `/` (like `raw GET /meetings/123`) before the CLI ever sees it, which breaks `raw` and any path-taking command. Prefix the command with `MSYS_NO_PATHCONV=1` (or run from PowerShell/cmd instead), e.g. `MSYS_NO_PATHCONV=1 zoom-meetings raw GET /users/me/meetings`.
+
 ## More examples
 
 [`examples/`](examples) has standalone, buildable projects for ASP.NET Core Minimal API, MVC, Blazor Server (an actual interactive `.razor` page, not just an endpoint), Azure Functions (isolated worker), and a console script — see [examples/README.md](examples/README.md).
