@@ -1,0 +1,100 @@
+@page "/"
+@rendermode InteractiveServer
+@using ZoomMeetings
+@using ZoomMeetings.Models
+@inject ZoomClient Zoom
+
+<h1>Upcoming Zoom Meetings</h1>
+
+@if (_errorMessage != null)
+{
+    <p style="color:red">@_errorMessage</p>
+}
+
+@if (_meetings == null)
+{
+    <p>Loading...</p>
+}
+else if (_meetings.Count == 0)
+{
+    <p>No upcoming meetings.</p>
+}
+else
+{
+    <ul>
+        @foreach (var meeting in _meetings)
+        {
+            <li>
+                <strong>@meeting.Topic</strong> - @meeting.StartTime
+                <button @onclick="() => DeleteAsync(meeting.Id.ToString())">Cancel</button>
+            </li>
+        }
+    </ul>
+}
+
+<h2>Create a meeting</h2>
+<EditForm Model="_newMeetingTopic" OnValidSubmit="CreateAsync">
+    <input @bind="_newMeetingTopic" placeholder="Meeting topic" />
+    <button type="submit" disabled="@_creating">@(_creating ? "Creating..." : "Create")</button>
+</EditForm>
+
+@code {
+    private List<MeetingSummary>? _meetings;
+    private string _newMeetingTopic = "New meeting";
+    private bool _creating;
+    private string? _errorMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await RefreshAsync();
+    }
+
+    private async Task RefreshAsync()
+    {
+        try
+        {
+            _meetings = await Zoom.ListUpcomingMeetingsAsync("me");
+            _errorMessage = null;
+        }
+        catch (ZoomApiException ex)
+        {
+            _errorMessage = $"Zoom API error: {ex.Message}";
+        }
+    }
+
+    private async Task CreateAsync()
+    {
+        _creating = true;
+        try
+        {
+            await Zoom.CreateMeetingAsync("me", new CreateMeetingRequest
+            {
+                Topic = _newMeetingTopic,
+                StartTime = DateTimeOffset.UtcNow.AddDays(1),
+                Duration = 30,
+            });
+            await RefreshAsync();
+        }
+        catch (ZoomApiException ex)
+        {
+            _errorMessage = $"Zoom API error: {ex.Message}";
+        }
+        finally
+        {
+            _creating = false;
+        }
+    }
+
+    private async Task DeleteAsync(string meetingId)
+    {
+        try
+        {
+            await Zoom.DeleteMeetingAsync(meetingId);
+            await RefreshAsync();
+        }
+        catch (ZoomApiException ex)
+        {
+            _errorMessage = $"Zoom API error: {ex.Message}";
+        }
+    }
+}

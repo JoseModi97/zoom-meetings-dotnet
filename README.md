@@ -166,6 +166,10 @@ zoom-meetings --help
 
 Credentials come from `ZOOM_ACCOUNT_ID`/`ZOOM_CLIENT_ID`/`ZOOM_CLIENT_SECRET` (or `ZOOM_<PROFILE>_*` when `--profile <name>` is passed), or an `appsettings.json` under a matching `Zoom`/`Zoom:<Profile>` section walked up from the current directory.
 
+## More examples
+
+[`examples/`](examples) has standalone, buildable projects for ASP.NET Core Minimal API, MVC, Blazor Server (an actual interactive `.razor` page, not just an endpoint), Azure Functions (isolated worker), and a console script — see [examples/README.md](examples/README.md).
+
 ## Error handling
 
 Non-2xx responses throw `ZoomApiException` with `StatusCode`, Zoom's own `ZoomCode`/`ZoomMessage` (when the response body could be parsed — Zoom's error shape isn't part of the public OpenAPI spec, so this is best-effort), and the raw response body as a fallback.
