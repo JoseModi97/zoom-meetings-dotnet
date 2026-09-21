@@ -4,6 +4,14 @@ This project follows [Semantic Versioning](https://semver.org/). Until 1.0.0, mi
 may still contain breaking changes to the public API; from 1.0.0 onward, breaking changes require a
 major version bump.
 
+## [0.2.0] - 2026-09-21
+
+- Complete 100% typed coverage across all 186 Zoom Meetings REST API endpoints and 13 domains.
+- Added full 186 tools catalog discovery in CLI (`zoom-meetings tools [domain|search|verify|json]`).
+- Added smart environment & platform auto-detection and code generator (`zoom-meetings setup`, `zoom-meetings generate`).
+- Added full sample integrations for Minimal API, MVC, Blazor Server, Azure Functions, and an all-186 verification suite.
+- Added Pesapal open-source sponsorship support and repository metadata.
+
 ## [0.1.0] - 2026-09-21
 
 Initial release.

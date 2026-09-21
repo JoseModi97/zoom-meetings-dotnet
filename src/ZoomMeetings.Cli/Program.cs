@@ -15,7 +15,7 @@ public class Program
 
         if (args.Length > 0 && args[0] is "--version" or "-v" or "version")
         {
-            var version = Assembly.GetExecutingAssembly().GetName().Version?.ToString(3) ?? "0.1.0";
+            var version = Assembly.GetExecutingAssembly().GetName().Version?.ToString(3) ?? "0.2.0";
             Console.WriteLine($"zoom-meetings v{version}");
             return 0;
         }

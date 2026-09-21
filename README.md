@@ -6,12 +6,13 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)
 [![.NET](https://img.shields.io/badge/.NET-netstandard2.0%20%7C%20net8.0%20%7C%20net10.0-512BD4?style=flat-square&logo=dotnet)](https://dotnet.microsoft.com/)
 [![CLI Tool](https://img.shields.io/badge/CLI-dotnet--zoom--meetings-0B5CFF?style=flat-square&logo=gnubash&logoColor=white)](https://www.nuget.org/packages/dotnet-zoom-meetings)
+[![Sponsor via Pesapal](https://img.shields.io/badge/Sponsor_via-Pesapal-0099ff?style=flat-square&logo=heart&logoColor=white)](https://store.pesapal.com/opensourcesponsorship)
 
 Idiomatic, high-performance .NET / C# client library and CLI tool providing **100% typed coverage (all 186 operations)** for the [Zoom Meetings REST API](https://developers.zoom.us/docs/api/).
 
 Authored by **Modi97** / [Jose Modi](https://github.com/JoseModi97).
 
-> **Status:** Released (v0.1.0), published to [NuGet.org](https://www.nuget.org/packages/ZoomMeetings). All three packages are implemented, tested, and verified live against Zoom's Server-to-Server API.
+> **Status:** Released (v0.2.0), published to [NuGet.org](https://www.nuget.org/packages/ZoomMeetings). All three packages are implemented, tested, and verified live against Zoom's Server-to-Server API.
 
 > **Unofficial.** This project is not affiliated with, endorsed by, or sponsored by Zoom Video Communications, Inc. "Zoom" is a trademark of Zoom Video Communications, Inc.
 
@@ -588,6 +589,17 @@ Check out [`examples/`](examples) for ready-to-run projects:
 
 ---
 
+## Sponsorship
+
+If this client helps you in your projects or commercial integrations, consider supporting ongoing open-source maintenance and development:
+
+[![Sponsor via Pesapal](https://img.shields.io/badge/Sponsor_via-Pesapal-0099ff?style=for-the-badge&logo=heart&logoColor=white)](https://store.pesapal.com/opensourcesponsorship)
+
+👉 **[Click here to Support via Pesapal Open Source Sponsorship](https://store.pesapal.com/opensourcesponsorship)**
+
+---
+
 ## License
 
 [MIT](LICENSE)
+

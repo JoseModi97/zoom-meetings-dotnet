@@ -9,12 +9,12 @@
 
     <!-- Package Metadata adhering to Microsoft Package Authoring Best Practices -->
     <PackageId>ZoomMeetings</PackageId>
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
     <Authors>Modi97</Authors>
     <Description>Idiomatic .NET / C# client for the Zoom Meetings REST API: 186/186 typed operations, meetings, registrants, polls, cloud recordings, meeting summaries, webinars, and reports, with Server-to-Server OAuth2 built in. Unofficial, not affiliated with or endorsed by Zoom Video Communications, Inc.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>zoom;zoom-api;zoom-meetings;zoom-sdk;zoom-webinars;video-conferencing;webinar;oauth2;server-to-server-oauth;dotnet;csharp;rest-api-client;sdk;ai-companion;cloud-recordings;webhooks</PackageTags>
-    <PackageReleaseNotes>0.1.0: Initial release. Typed coverage for Meetings, Registrants, Polls, Cloud Recordings, Meeting Summaries, Webinars, and two Reports endpoints; every other Zoom Meetings API operation is reachable via ZoomClient.CallAsync.</PackageReleaseNotes>
+    <PackageReleaseNotes>0.2.0: 100% typed coverage (all 186 operations), CLI platform detection &amp; code generation wizard, and Pesapal sponsorship support.</PackageReleaseNotes>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageProjectUrl>https://github.com/JoseModi97/zoom-meetings-dotnet</PackageProjectUrl>
     <RepositoryUrl>https://github.com/JoseModi97/zoom-meetings-dotnet</RepositoryUrl>
