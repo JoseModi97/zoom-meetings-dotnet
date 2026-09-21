@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net8.0;net10.0</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+
+    <!-- Package Metadata adhering to Microsoft Package Authoring Best Practices -->
+    <PackageId>ZoomMeetings</PackageId>
+    <Version>0.1.0</Version>
+    <Description>Idiomatic .NET / C# client for the Zoom Meetings REST API: meetings, registrants, polls, cloud recordings, meeting summaries, webinars, and reports, with Server-to-Server OAuth2 built in. Unofficial, not affiliated with or endorsed by Zoom Video Communications, Inc.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>zoom;zoom-api;zoom-meetings;zoom-sdk;zoom-webinars;video-conferencing;webinar;oauth2;server-to-server-oauth;dotnet;csharp;rest-api-client;sdk</PackageTags>
+    <PackageReleaseNotes>0.1.0: Initial release. Typed coverage for Meetings, Registrants, Polls, Cloud Recordings, Meeting Summaries, Webinars, and two Reports endpoints; every other Zoom Meetings API operation is reachable via ZoomClient.CallAsync.</PackageReleaseNotes>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageProjectUrl>https://github.com/JoseModi97/zoom-meetings-dotnet</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/JoseModi97/zoom-meetings-dotnet</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+
+    <!-- Source Link & Debug Symbols -->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.401" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.2" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="\" />
+    <None Include="..\..\icon.png" Pack="true" PackagePath="\" Condition="Exists('..\..\icon.png')" />
+  </ItemGroup>
+
+  <PropertyGroup Condition="Exists('..\..\icon.png')">
+    <PackageIcon>icon.png</PackageIcon>
+  </PropertyGroup>
+
+</Project>

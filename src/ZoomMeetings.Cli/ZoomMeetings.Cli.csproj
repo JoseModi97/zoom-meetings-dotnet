@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <RollForward>LatestMajor</RollForward>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+
+    <!-- Global Tool Metadata adhering to Microsoft Package Authoring Best Practices -->
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>zoom-meetings</ToolCommandName>
+    <PackageId>dotnet-zoom-meetings</PackageId>
+    <Version>0.1.0</Version>
+    <Description>CLI for the Zoom Meetings API: meetings, registrants, polls, recordings, summaries, reports, and webinars, plus a raw command for any of Zoom's other REST endpoints. Built on the ZoomMeetings .NET client.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>zoom;zoom-api;zoom-meetings;cli;dotnet-tool;video-conferencing;webinar</PackageTags>
+    <PackageReleaseNotes>0.1.0: Initial release.</PackageReleaseNotes>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageProjectUrl>https://github.com/JoseModi97/zoom-meetings-dotnet</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/JoseModi97/zoom-meetings-dotnet</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ZoomMeetings\ZoomMeetings.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="\" />
+    <None Include="..\..\icon.png" Pack="true" PackagePath="\" Condition="Exists('..\..\icon.png')" />
+  </ItemGroup>
+
+  <PropertyGroup Condition="Exists('..\..\icon.png')">
+    <PackageIcon>icon.png</PackageIcon>
+  </PropertyGroup>
+
+</Project>
